@@ -4,10 +4,11 @@ using namespace std;
 int main()
 {
     int n;
-    //cout<<"valeur de n :";
+    cout<<"enter matrix dimension :";
     cin>>n;
-    float A[n+1][n+1],b[n+1];
-    //cout<<"valeur de A : ";
+    float  A[n+1][n+1];
+    float b[n+1];
+    cout<<"enter the value of matrix A : "<<endl;
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=n;j++)
@@ -15,7 +16,8 @@ int main()
             cin>>A[i][j];
         }
     }
-    //cout<<"valeur de b : ";
+    cout<<endl;
+    cout<<"enter the values of second member b : ";
     for(int i=1;i<=n;i++)
     {
         cin>>b[i];
@@ -24,29 +26,30 @@ int main()
     {
         if(A[k][k]==0)
         {
-            cout<<"erreur";
+            cout<<"the pivot is zero so swapping row k with row r > k is writing the matrix";
             return 0;
         }
-        else
+
+        
+        for(int i=k+1;i<=n;i++)
         {
-            for(int i=k+1;i<=n;i++)
+            float c;
+            c = A[i][k]/A[k][k];
+            b[i] = b[i] - c*b[k];
+            A[i][k] = 0;
+            for(int j=k+1;j<=n;j++)
             {
-                float c;
-                c = A[i][k]/A[k][k];
-                b[i] = b[i] - c*b[k];
-                A[i][k] = 0;
-                for(int j=k+1;j<=n;j++)
-                {
-                    A[i][j] = A[i][j] - c*A[k][j];
-                }
+                 A[i][j] = A[i][j] - c*A[k][j];
             }
         }
+        
     }
     if(A[n][n] == 0)
     {
-        cout<<"erreur ";
+        cout<<"error : the pivot is zero ";
         return 0;
     }
+    cout<<"the matrix after  the Gaussian elimination method"<<endl;
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=n;j++)
@@ -55,7 +58,7 @@ int main()
         }
         cout<<endl;
     }
-
+cout<<"b after  the Gaussian elimination method"<<endl;
     for(int i=1;i<=n;i++)
     {
     	cout<<b[i]<<" ";
@@ -78,9 +81,10 @@ int main()
         X[i] = s/A[i][i];
         i--;
     }
-    for(int i=1;i<=n;i++)
+    cout<<"The solutions of your system : "<<endl;
+    for(int i=n;i>0;i--)
     {
-        cout<<X[i]<<endl;
+        cout<<"x"<<i<<" : "<<X[i]<<endl;
     }
 
 
