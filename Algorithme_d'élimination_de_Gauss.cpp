@@ -24,10 +24,13 @@ int main()
     }
     for(int k=1;k<n;k++)
     {
-        if(A[k][k]==0)
+        while(A[k][k]==0)
         {
-            cout<<"the pivot is zero so swapping row k with row r > k is writing the matrix";
-            return 0;
+            for(int i=1;i<=n;i++)
+            {
+                swap(A[k][i],A[k+1][i]);
+            }
+            swap(b[k],b[k+1]);
         }
 
         
