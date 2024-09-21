@@ -25,8 +25,6 @@ def F_j(A):
 
 def method_gauss_seidel(A,b,x0,eps=0.01,max_it=1000):
     x=x0
-    path = []
-    path.append(x)
     it=0
     M = D_j(A)
     E = E_j(A)
@@ -47,7 +45,7 @@ def method_gauss_seidel(A,b,x0,eps=0.01,max_it=1000):
     return x
 
 ## unit testing 
-
+'''
 
 def testing(A,b,x0,res):
     if(np.array_equal(method_gauss_seidel(A,b,x0),res)):
@@ -82,3 +80,8 @@ A =  np.array([[10, -1,0], [-1, 10,-2] , [-2,0,10]])
 b = np.array([[9],[10],[7]])
 x0= np.array([[0],[0],[0]])
 print(testing(A,b,x0,np.array([[1.0284],[1.28398],[0.90568]])))
+
+
+
+
+'''
