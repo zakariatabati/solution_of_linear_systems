@@ -3,11 +3,16 @@
 using namespace std;
 int main()
 {
-    int n;
+     
+    int n ;
     cout<<"enter matrix dimension :";
     cin>>n;
-    float  A[n+1][n+1];
-    float b[n+1];
+    float  **A = new float *[n+1];
+    for(int i=1;i<n+1;i++)
+    {
+        A[i] = new float [n+1];
+    }
+    float *b = new float [n+1];
     cout<<"enter the value of matrix A : "<<endl;
     for(int i=1;i<=n;i++)
     {
@@ -67,7 +72,7 @@ cout<<"b after  the Gaussian elimination method"<<endl;
     	cout<<b[i]<<" ";
     }
     cout<<endl;
-    float X[n+1]={0};
+    float *X = new float [n+1];
     X[n] = b[n]/A[n][n];
     int i = n-1;
     while(i>=1)
@@ -89,6 +94,12 @@ cout<<"b after  the Gaussian elimination method"<<endl;
     {
         cout<<"x"<<i<<" : "<<X[i]<<endl;
     }
+    delete [] b;
+    delete [] X;
+    for(int i=1;i<n+1;i++)
+        delete [] A[i];
+    delete [] A;
+
 
 
 
