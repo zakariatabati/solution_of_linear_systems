@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 def D_j(A):
     D = np.zeros(A.shape)
